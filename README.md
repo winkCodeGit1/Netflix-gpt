@@ -2,6 +2,9 @@
 
 - create React app - Vite
 - Install Tailwind css
+- Header
+- Login Form
+- Sign Up Form
 
 # Features 
 - Login/ Sign Up
