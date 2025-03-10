@@ -3,8 +3,11 @@
 - create React app - Vite
 - Install Tailwind css
 - Header
+- Routing of App
 - Login Form
 - Sign Up Form
+- Form Validation
+- UseRef Hook
 
 # Features 
 - Login/ Sign Up
