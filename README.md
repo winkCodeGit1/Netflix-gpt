@@ -8,6 +8,9 @@
 - Sign Up Form
 - Form Validation
 - UseRef Hook
+- Firebase setup
+- Deploying our application to production in Firebase
+
 
 # Features 
 - Login/ Sign Up
