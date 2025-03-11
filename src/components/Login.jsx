@@ -1,8 +1,12 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { validateForm } from "../utils/Validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase"
+import { createLogger } from "vite";
 
 const Login = () => {
+
   const [isSignedIn, setIsSignedIn] = useState(true);
   const [errMessage, setErrMessage] = useState("");
   const email = useRef(null);
@@ -20,9 +24,27 @@ const Login = () => {
       password?.current?.value,
       fullName?.current?.value
     );
-
-    console.log(message, "------message");
     setErrMessage(message);
+    if (messsage) return;
+
+    ///Sign in or sign up logic
+
+    if (!isSignedIn) {
+      ////signup logic 
+      createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          console.log(user, '-----user signed up');
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrMessage(errMessage + '-' + errorCode);
+          // ..
+        });
+    }
   };
 
   return (
